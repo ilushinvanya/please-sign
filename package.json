@@ -3,6 +3,7 @@
 	"private": true,
 	"version": "1.0.0",
 	"type": "module",
+	"description": "Please Sign Here - Animated signature canvas with export to PNG, GIF, SVG",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",

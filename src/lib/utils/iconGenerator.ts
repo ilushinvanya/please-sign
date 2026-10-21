@@ -104,8 +104,8 @@ export async function updateManifestIcons(): Promise<void> {
 
   // Create dynamic manifest
   const manifest = {
-    name: 'Animated Signature Canvas',
-    short_name: 'SignCanvas',
+    name: 'Please Sign Here - Animated Signature',
+    short_name: 'Sign Here',
     description: 'Animated signature canvas with playback and export to PNG, GIF, SVG',
     start_url: '/',
     display: 'standalone',
@@ -188,8 +188,8 @@ export async function updateManifestIconsFromCanvas(
 
   // Create dynamic manifest
   const manifest = {
-    name: 'Animated Signature Canvas',
-    short_name: 'SignCanvas',
+    name: 'Please Sign Here - Animated Signature',
+    short_name: 'Sign Here',
     description: 'Animated signature canvas with playback and export to PNG, GIF, SVG',
     start_url: '/',
     display: 'standalone',

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>«Распишитесь» - Цифровая подпись онлайн | Подписывайте документы без распечатки</title>
+    <meta name="description" content="Создайте красивую анимированную цифровую подпись онлайн. Подписывайте PDF и Word документы без принтера и распечатки. Экспорт в PNG, GIF, SVG с анимацией.">
+    <meta name="keywords" content="цифровая подпись, электронная подпись, подписать документ онлайн, подпись без печати, анимированная подпись, подпись для PDF">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://signcanvas.app/">
+    <meta property="og:title" content="«Распишитесь» - Цифровая подпись онлайн">
+    <meta property="og:description" content="Создайте красивую анимированную цифровую подпись. Подписывайте документы без распечатки.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="«Распишитесь» - Цифровая подпись онлайн">
+    <meta property="twitter:description" content="Создайте красивую анимированную цифровую подпись. Подписывайте документы без распечатки.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "«Распишитесь»",
+        "description": "Онлайн-приложение для создания цифровой анимированной подписи",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Force max font-weight 500 for all elements */
+        *, *::before, *::after {
+            font-weight: 500 !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 500;
+            color: #2854d9;
+            text-decoration: none;
+        }
+
+        .cta-button {
+            background: linear-gradient(to bottom, #3b6dff 0%, #2854d9 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(40, 84, 217, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(40, 84, 217, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 100px;
+            text-align: center;
+            background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            background: linear-gradient(to bottom, #3b6dff 0%, #2854d9 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 16px rgba(40, 84, 217, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(40, 84, 217, 0.4);
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .problem h2 {
+            font-size: 42px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .problem-card {
+            padding: 30px;
+            background: #f8f9ff;
+            border-radius: 16px;
+            border: 1px solid #e8ebff;
+        }
+
+        .problem-card .icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .problem-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .problem-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .solution-highlight {
+            background: linear-gradient(135deg, #3b6dff 0%, #2854d9 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .solution-highlight h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .solution-highlight p {
+            font-size: 20px;
+            opacity: 0.95;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
+        }
+
+        .features h2 {
+            font-size: 42px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .how-it-works h2 {
+            font-size: 42px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 968px) {
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b6dff 0%, #2854d9 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 500;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 80px 0;
+            background: #f8f9ff;
+        }
+
+        .partners h2 {
+            font-size: 42px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+
+        .partners-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 18px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .partner-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover {
+            border-color: #3b6dff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 109, 255, 0.15);
+        }
+
+        .partner-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .partner-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .partner-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .partner-cta {
+            display: inline-block;
+            color: #3b6dff;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid #3b6dff;
+            transition: all 0.2s ease;
+        }
+
+        .partner-cta:hover {
+            color: #2854d9;
+            border-bottom-color: #2854d9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #3b6dff 0%, #2854d9 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-button-large {
+            background: white;
+            color: #2854d9;
+            padding: 20px 50px;
+            border-radius: 14px;
+            font-size: 20px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-button-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background: #1a1a1a;
+            color: #999;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #3b6dff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
+            }
+
+            .problem h2,
+            .features h2,
+            .how-it-works h2,
+            .partners h2 {
+                font-size: 32px;
+            }
+
+            .cta-section h2 {
+                font-size: 32px;
+            }
+
+            .solution-highlight h3 {
+                font-size: 24px;
+            }
+
+            .solution-highlight p {
+                font-size: 16px;
+            }
+        }
+
+        /* Dark Theme */
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #e5e5e5;
+                background: #0a0a0a;
+            }
+
+            header {
+                border-bottom-color: #2a2a2a;
+                background: rgba(10, 10, 10, 0.95);
+            }
+
+            .logo {
+                color: #5a8aff;
+            }
+
+            .hero {
+                background: linear-gradient(180deg, #0f0f1a 0%, #0a0a0a 100%);
+            }
+
+            .hero h1 {
+                color: #f5f5f5;
+            }
+
+            .hero .subtitle {
+                color: #a0a0a0;
+            }
+
+            .problem {
+                background: #0a0a0a;
+            }
+
+            .problem h2,
+            .features h2,
+            .how-it-works h2,
+            .partners h2 {
+                color: #f5f5f5;
+            }
+
+            .problem-card {
+                background: #151520;
+                border-color: #252530;
+            }
+
+            .problem-card h3 {
+                color: #f5f5f5;
+            }
+
+            .problem-card p {
+                color: #a0a0a0;
+            }
+
+            .features {
+                background: linear-gradient(180deg, #0a0a0a 0%, #0f0f1a 100%);
+            }
+
+            .feature-card {
+                background: #151520;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .feature-card h3 {
+                color: #f5f5f5;
+            }
+
+            .feature-card p {
+                color: #a0a0a0;
+            }
+
+            .how-it-works {
+                background: #0a0a0a;
+            }
+
+            .step h3 {
+                color: #f5f5f5;
+            }
+
+            .step p {
+                color: #a0a0a0;
+            }
+
+            .partners {
+                background: #0f0f1a;
+            }
+
+            .partners-intro {
+                color: #a0a0a0;
+            }
+
+            .partner-card {
+                background: #151520;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            .partner-card:hover {
+                border-color: #5a8aff;
+                box-shadow: 0 6px 20px rgba(90, 138, 255, 0.2);
+            }
+
+            .partner-card h3 {
+                color: #f5f5f5;
+            }
+
+            .partner-card p {
+                color: #a0a0a0;
+            }
+
+            .partner-cta {
+                color: #5a8aff;
+                border-bottom-color: #5a8aff;
+            }
+
+            .partner-cta:hover {
+                color: #4070e0;
+                border-bottom-color: #4070e0;
+            }
+
+            footer {
+                background: #0a0a0a;
+                color: #666;
+            }
+
+            footer a {
+                color: #5a8aff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">«Распишитесь»</a>
+                <a href="/app" class="cta-button">Попробовать бесплатно</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Подписывайте документы<br>без распечатки</h1>
+                <p class="subtitle">Создайте красивую анимированную подпись онлайн и используйте её в цифровых документах. Навсегда забудьте про принтер и сканер.</p>
+                <div class="hero-cta">
+                    <a href="/app" class="cta-primary">Создать подпись →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="problem">
+            <div class="container">
+                <h2>Знакомая ситуация?</h2>
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <div class="icon">📄</div>
+                        <h3>Вам прислали документ</h3>
+                        <p>PDF или Word файл нужно подписать и вернуть. Но нет принтера под рукой.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="icon">🖨️</div>
+                        <h3>Распечатать? Нет времени</h3>
+                        <p>Идти к принтеру, распечатывать, подписывать ручкой, сканировать обратно...</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="icon">✍️</div>
+                        <h3>Ручка выглядит непрезентабельно</h3>
+                        <p>Зазоры, прерывания чернил, неровные линии. Документ теряет вид.</p>
+                    </div>
+                </div>
+
+                <div class="solution-highlight">
+                    <h3>✨ «Распишитесь» — ваше решение</h3>
+                    <p>Создайте цифровую подпись один раз — используйте везде. Красиво, профессионально, мгновенно.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Почему надо расписаться</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Идеально ровная подпись</h3>
+                        <p>Постоянный штрих без пробелов и прерываний. Ваша подпись всегда выглядит безупречно.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>Анимированная подпись</h3>
+                        <p>Включите режим анимации — подпись будет рисоваться на экране как живая. Эффектно и впечатляюще!</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Работает везде</h3>
+                        <p>На компьютере, планшете или телефоне. Не нужно ничего устанавливать — просто откройте браузер.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💾</div>
+                        <h3>Универсальный экспорт</h3>
+                        <p>Сохраните в PNG, GIF или SVG. Вставьте в любой документ — PDF, Word, Excel, презентации.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Мгновенно</h3>
+                        <p>От создания подписи до вставки в документ — 30 секунд. Никаких принтеров и сканеров.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>100% приватно</h3>
+                        <p>Ваша подпись не покидает ваше устройство. Всё работает локально в браузере.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <h2>Как это работает</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Распишитесь</h3>
+                        <p>Откройте приложение и распишитесь пальцем или мышкой. Так же, как на бумаге.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Настройте анимацию</h3>
+                        <p>Включите режим анимации, если хотите, чтобы подпись рисовалась плавно.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Сохраните</h3>
+                        <p>Экспортируйте в нужном формате — PNG, GIF или SVG.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Используйте везде</h3>
+                        <p>Вставьте подпись в любой документ — PDF, Word, Excel. Готово!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners">
+            <div class="container">
+                <h2>Для партнёров</h2>
+                <p class="partners-intro">
+                    Вы разрабатываете красивые подписи на заказ? Создаёте уникальные автографы для клиентов?<br>
+                    <strong>«Распишитесь»</strong> — идеальное дополнение к вашим услугам!
+                </p>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-icon">🎨</div>
+                        <h3>Каллиграфы</h3>
+                        <p>Создали красивую подпись для клиента? Отправьте его в «Распишитесь» — пусть оцифрует её с анимацией!</p>
+                        <a href="/app" class="partner-cta">Попробовать →</a>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-icon">✍️</div>
+                        <h3>Дизайнеры подписей</h3>
+                        <p>Предложите клиентам полный цикл: уникальный дизайн + готовая цифровая версия для документов.</p>
+                        <a href="/app" class="partner-cta">Узнать больше →</a>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-icon">📝</div>
+                        <h3>Консультанты по имиджу</h3>
+                        <p>Помогаете создавать личный бренд? Цифровая подпись — важная часть профессионального стиля.</p>
+                        <a href="/app" class="partner-cta">Начать использовать →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Готовы создать свою подпись?</h2>
+                <p>Бесплатно. Без регистрации. За 30 секунд.</p>
+                <a href="/app" class="cta-button-large">Создать подпись сейчас →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 «Распишитесь». Цифровая подпись онлайн.</p>
+            <p>Создано с ❤️ для профессионалов</p>
+        </div>
+    </footer>
+</body>
+</html>
