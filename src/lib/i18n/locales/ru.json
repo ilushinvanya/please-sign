@@ -1,0 +1,33 @@
+{
+  "app": {
+    "title": "Распишитесь"
+  },
+  "buttons": {
+    "clear": "Очистить",
+    "save": "Сохранить",
+    "cancel": "Отмена"
+  },
+  "footer": {
+    "transparentBackground": "Прозрачный фон",
+    "lineWidth": "Толщина линии",
+    "animation": "Анимация",
+    "pauseBefore": "Пауза до",
+    "pauseAfter": "Пауза после",
+    "loop": "Повтор"
+  },
+  "formats": {
+    "png": "PNG",
+    "gif": "GIF",
+    "svg": "SVG"
+  },
+  "toast": {
+    "pngSaved": "PNG сохранён",
+    "gifSaved": "GIF анимация сохранена",
+    "svgSaved": "SVG сохранён",
+    "svgAnimationSaved": "SVG анимация сохранена",
+    "gifError": "Ошибка создания GIF"
+  },
+  "units": {
+    "seconds": "с"
+  }
+}

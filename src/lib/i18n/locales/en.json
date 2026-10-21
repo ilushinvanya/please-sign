@@ -1,0 +1,33 @@
+{
+  "app": {
+    "title": "Please sign here"
+  },
+  "buttons": {
+    "clear": "Clear",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "footer": {
+    "transparentBackground": "Transparent background",
+    "lineWidth": "Line width",
+    "animation": "Animation",
+    "pauseBefore": "Pause before",
+    "pauseAfter": "Pause after",
+    "loop": "Loop"
+  },
+  "formats": {
+    "png": "PNG",
+    "gif": "GIF",
+    "svg": "SVG"
+  },
+  "toast": {
+    "pngSaved": "PNG saved",
+    "gifSaved": "GIF animation saved",
+    "svgSaved": "SVG saved",
+    "svgAnimationSaved": "SVG animation saved",
+    "gifError": "GIF creation error"
+  },
+  "units": {
+    "seconds": "s"
+  }
+}
