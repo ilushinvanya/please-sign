@@ -334,6 +334,146 @@
             line-height: 1.6;
         }
 
+        /* Examples Section */
+        .examples {
+            padding: 80px 0;
+            background: #f8f9ff;
+        }
+
+        .examples h2 {
+            font-size: 42px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .examples-intro {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .example-card {
+            text-align: center;
+        }
+
+        .document-preview {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .document-preview:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .doc-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .doc-icon {
+            font-size: 24px;
+        }
+
+        .doc-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .doc-content {
+            text-align: left;
+        }
+
+        .doc-line {
+            height: 8px;
+            background: linear-gradient(90deg, #e5e5e5 0%, #f0f0f0 100%);
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .doc-line.short {
+            width: 60%;
+        }
+
+        .doc-line.medium {
+            width: 80%;
+        }
+
+        .signature-placeholder {
+            position: relative;
+            margin: 20px 0;
+            padding: 16px 0;
+        }
+
+        .signature-text {
+            font-size: 12px;
+            color: #999;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .signature-example {
+            width: 180px;
+            height: 50px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .signature-example.small {
+            width: 120px;
+            height: 40px;
+        }
+
+        .signature-placeholder.email-sig {
+            background: #f8f9ff;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .email-sig-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .email-sig-info {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .example-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .example-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
         /* Partners Section */
         .partners {
             padding: 80px 0;
@@ -482,6 +622,7 @@
             .problem h2,
             .features h2,
             .how-it-works h2,
+            .examples h2,
             .partners h2 {
                 font-size: 32px;
             }
@@ -577,6 +718,51 @@
             }
 
             .step p {
+                color: #a0a0a0;
+            }
+
+            .examples {
+                background: #0f0f1a;
+            }
+
+            .examples h2 {
+                color: #f5f5f5;
+            }
+
+            .examples-intro {
+                color: #a0a0a0;
+            }
+
+            .document-preview {
+                background: #151520;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .doc-header {
+                border-bottom-color: #2a2a2a;
+            }
+
+            .doc-title {
+                color: #e5e5e5;
+            }
+
+            .doc-line {
+                background: linear-gradient(90deg, #2a2a2a 0%, #353535 100%);
+            }
+
+            .signature-placeholder.email-sig {
+                background: #1a1a25;
+            }
+
+            .email-sig-name {
+                color: #f5f5f5;
+            }
+
+            .example-card h3 {
+                color: #f5f5f5;
+            }
+
+            .example-card p {
                 color: #a0a0a0;
             }
 
@@ -737,6 +923,87 @@
                         <div class="step-number">4</div>
                         <h3>Используйте везде</h3>
                         <p>Вставьте подпись в любой документ — PDF, Word, Excel. Готово!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="examples">
+            <div class="container">
+                <h2>Используйте в любых документах</h2>
+                <p class="examples-intro">Ваша подпись готова к использованию в PDF, Word, Excel и других форматах</p>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <div class="document-preview">
+                            <div class="doc-header">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-title">Договор.pdf</div>
+                            </div>
+                            <div class="doc-content">
+                                <div class="doc-line"></div>
+                                <div class="doc-line short"></div>
+                                <div class="doc-line"></div>
+                                <div class="doc-line medium"></div>
+                                <div class="signature-placeholder">
+                                    <span class="signature-text">Подпись: _______________</span>
+                                    <svg class="signature-example" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10,30 Q20,10 40,25 T70,30 Q80,35 90,25" stroke="#2854d9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M100,28 L120,32 M110,20 L110,40" stroke="#2854d9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                        <path d="M130,35 Q140,20 155,30 Q165,38 175,28" stroke="#2854d9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="doc-line short"></div>
+                            </div>
+                        </div>
+                        <h3>PDF документы</h3>
+                        <p>Договоры, соглашения, заявления — подписывайте без распечатки</p>
+                    </div>
+                    <div class="example-card">
+                        <div class="document-preview word">
+                            <div class="doc-header">
+                                <div class="doc-icon">📝</div>
+                                <div class="doc-title">Заявление.docx</div>
+                            </div>
+                            <div class="doc-content">
+                                <div class="doc-line"></div>
+                                <div class="doc-line"></div>
+                                <div class="doc-line short"></div>
+                                <div class="signature-placeholder">
+                                    <span class="signature-text">С уважением, _______________</span>
+                                    <svg class="signature-example" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10,30 Q20,10 40,25 T70,30 Q80,35 90,25" stroke="#2854d9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M100,28 L120,32 M110,20 L110,40" stroke="#2854d9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                        <path d="M130,35 Q140,20 155,30 Q165,38 175,28" stroke="#2854d9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="doc-line medium"></div>
+                            </div>
+                        </div>
+                        <h3>Word документы</h3>
+                        <p>Письма, заявления, резюме — профессиональная подпись в один клик</p>
+                    </div>
+                    <div class="example-card">
+                        <div class="document-preview email">
+                            <div class="doc-header">
+                                <div class="doc-icon">✉️</div>
+                                <div class="doc-title">Email подпись</div>
+                            </div>
+                            <div class="doc-content">
+                                <div class="doc-line"></div>
+                                <div class="doc-line short"></div>
+                                <div class="signature-placeholder email-sig">
+                                    <div class="email-sig-name">Иван Иванов</div>
+                                    <svg class="signature-example small" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10,30 Q20,10 40,25 T70,30 Q80,35 90,25" stroke="#2854d9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M100,28 L120,32 M110,20 L110,40" stroke="#2854d9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                        <path d="M130,35 Q140,20 155,30 Q165,38 175,28" stroke="#2854d9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <div class="email-sig-info">CEO, Компания</div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Email подпись</h3>
+                        <p>Добавьте персональный штрих в деловую переписку</p>
                     </div>
                 </div>
             </div>
