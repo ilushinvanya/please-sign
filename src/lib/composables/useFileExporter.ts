@@ -10,10 +10,32 @@ export interface ExportOptions {
 }
 
 export function downloadBlob(blob: Blob, filename: string) {
+	// Check if we're on a mobile device
+	const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+	if (isMobile && navigator.share) {
+		// Use Web Share API on mobile if available
+		const file = new File([blob], filename, { type: blob.type });
+		navigator.share({
+			files: [file],
+			title: 'Signature',
+		}).catch((error) => {
+			// Fallback to download if share fails or is cancelled
+			console.log('Share failed, using download fallback', error);
+			triggerDownload(blob, filename);
+		});
+	} else {
+		// Use traditional download for desktop
+		triggerDownload(blob, filename);
+	}
+}
+
+function triggerDownload(blob: Blob, filename: string) {
 	const url = URL.createObjectURL(blob);
 	const link = document.createElement('a');
 	link.href = url;
 	link.download = filename;
+	link.style.display = 'none';
 	document.body.appendChild(link);
 	link.click();
 	document.body.removeChild(link);

@@ -22,13 +22,15 @@
 		transform: translateX(-50%) translateY(80px);
 		background: #111;
 		color: white;
-		padding: 10px 20px;
+		padding: 12px 24px;
 		border-radius: 20px;
-		font-size: 14px;
+		font-size: 15px;
+		font-weight: 500;
 		transition: transform 0.3s ease;
 		pointer-events: none;
-		z-index: 10;
+		z-index: 1000;
 		white-space: nowrap;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 	}
 	.toast.show {
 		transform: translateX(-50%) translateY(0);
